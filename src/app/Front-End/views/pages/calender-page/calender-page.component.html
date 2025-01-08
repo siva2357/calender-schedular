@@ -1,0 +1,27 @@
+<div class="container-fluid p-5  bg-dark">
+    <div class="d-flex justify-content-end align-items-center" style="margin-right: 50px;">
+        <button class="btn btn-primary btn-sm d-flex align-items-center mb-3" data-bs-toggle="modal" data-bs-target="#eventModal">
+            <i class="bi bi-plus me-2" style="font-size: 1.2rem;"></i> 
+            Add Event
+        </button>
+    </div>
+    
+    <div class="container bg-body-secondary">
+        <div class="col p-5">
+            <full-calendar [options]="calendarOptions" [events]="events" ></full-calendar>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+<!-- Modal -->
+<div class="modal fade" id="eventModal" tabindex="-1" aria-labelledby="eventModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <app-event-form-page></app-event-form-page>
+      </div>
+    </div>
+  </div>

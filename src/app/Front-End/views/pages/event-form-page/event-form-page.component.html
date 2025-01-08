@@ -1,0 +1,45 @@
+<div class="modal-header">
+    <h1 class="modal-title fs-5" id="exampleModalLabel">Create Event</h1>
+    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+  </div>
+  <div class="modal-body">
+    <form [formGroup]="eventForm" (ngSubmit)="onSubmit()">
+
+        <div class="form-group mb-3">
+            <label for="eventName" class="form-label">Event name <span class="required text-danger">*</span></label>
+            <input type="text" id="eventName" formControlName="eventName" class="form-control " placeholder="Enter the event name" required>
+            <small *ngIf="eventForm.get('eventName')?.hasError('required') && eventForm.get('eventName')?.touched" class="text-danger">Event Name is required.</small>
+        </div>
+
+
+        <div class="form-group mb-3">
+            <label for="eventName" class="form-label">Select Date <span class="required text-danger">*</span></label>
+            <input type="date" id="scheduleDate" formControlName="scheduleDate" class="form-control" required>
+            <small *ngIf="eventForm.get('scheduleDate')?.hasError('required') && eventForm.get('scheduleDate')?.touched" class="text-danger">Schedule Date is required.</small>
+        </div>
+
+
+        <div class="form-group mb-3">
+            <label for="startTime" class="form-label">Start Time<span class="required text-danger">*</span></label>
+            <input type="time" id="startTime" formControlName="startTime" class="form-control"  required>
+            <small *ngIf="eventForm.get('startTime')?.hasError('required') && eventForm.get('startTime')?.touched" class="text-danger">Start time is required.</small>
+        </div>
+
+
+        <div class="form-group mb-3">
+            <label for="endTime" class="form-label">End Time <span class="required text-danger">*</span></label>
+            <input type="time" id="endTime" formControlName="endTime" class="form-control " required>
+            <small *ngIf="eventForm.get('endTime')?.hasError('required') && eventForm.get('endTime')?.touched" class="text-danger">End time is required.</small>
+        </div>
+
+</form>
+
+
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+    <button type="submit" class="btn btn-success" [disabled]="eventForm.invalid">Post</button>
+  </div>
+
+
+  
